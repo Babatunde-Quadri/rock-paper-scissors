@@ -68,7 +68,17 @@
         }
         playGame();
 
-        console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
+        console.log("===| Game Over |===");
+
+        console.log(`Final Score - Human: ${humanScore} | Computer: ${computerScore}`);
+
+        if (humanScore > computerScore) {
+            console.log("🎉 Overall Winner: Human! 🎉");
+        } else if (computerScore > humanScore) {
+            console.log("💻 Overall Winner: Computer! 💻");
+        } else {
+            console.log("🤝 Overall Result: It's a draw! 🤝");
+        }
     </script>
 </body>
 </html>
