@@ -12,7 +12,16 @@
       <button class="scissors">Scissors</button>
     </div>
 
+    <div class="gameBoard">
+      <p class="current-round">Click a button to begin!</p>
+      <p class="round-result">Rock, Paper, Scissors. Shoot!</p>
+      <p class="game-score">Human: 0 | computer: 0</p>
+    </div>
+
     <script>
+      const currentRound = document.querySelector(".current-round");
+      const roundResult = document.querySelector(".round-result");
+      const gameScore = document.querySelector(".game-score");
       const buttons = document.querySelector(".button-container");
 
       function getComputerChoice() {
@@ -31,7 +40,7 @@
         const humanChoice = event.target.className;
         const computerChoice = getComputerChoice();
 
-        console.log(playRound(humanChoice, computerChoice));
+        playRound(humanChoice, computerChoice);
       });
 
       let humanScore = 0;
@@ -40,32 +49,30 @@
 
       function playRound(humanChoice, computerChoice) {
         gameRound++;
-        console.log(`===| Round ${gameRound} |===`);
-        // humanChoice = humanChoice.toLowerCase();
+        currentRound.textContent = `Round ${gameRound}`;
+        //humanChoice = humanChoice.toLowerCase();
         if (humanChoice === computerChoice) {
-          const tie = `It's a tie! Both chose ${humanChoice}`;
-          return tie;
+          roundResult.textContent = `It's a tie! Both chose ${humanChoice}`;
         } else if (
           (humanChoice === "rock" && computerChoice === "scissors") ||
           (humanChoice === "paper" && computerChoice === "rock") ||
           (humanChoice === "scissors" && computerChoice === "paper")
         ) {
-          const win = `You win! ${humanChoice} beats ${computerChoice}`;
+          roundResult.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
           humanScore++;
-          return win;
         } else if (
           (computerChoice === "rock" && humanChoice === "scissors") ||
           (computerChoice === "paper" && humanChoice === "rock") ||
           (computerChoice === "scissors" && humanChoice === "paper")
         ) {
-          const loss = `You lose! ${computerChoice} beats ${humanChoice}`;
+          roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
           computerScore++;
-          return loss;
         } else {
           const invalid = `Invalid input! you lose`;
           computerScore++;
           return invalid;
         }
+        gameScore.textContent = `Game Score - Human: ${humanScore} | Computer: ${computerScore}`;
       }
     </script>
   </body>
