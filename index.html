@@ -41,6 +41,16 @@
         const computerChoice = getComputerChoice();
 
         playRound(humanChoice, computerChoice);
+
+        if (humanScore === 5 || computerScore === 5) {
+          currentRound.textContent = "Game Over! Refresh to play again.";
+          roundResult.textContent = `Final Score - Human: ${humanScore} | Computer: ${computerScore}`;
+          if (humanScore === 5) {
+            gameScore.textContent = "🎉 Overall Winner: Human! 🎉";
+          } else {
+            gameScore.textContent = "💻 Overall Winner: Computer! 💻";
+          }
+        }
       });
 
       let humanScore = 0;
