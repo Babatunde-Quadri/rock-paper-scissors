@@ -37,12 +37,16 @@
       getComputerChoice();
 
       buttons.addEventListener("click", function (event) {
+        if (gameOver) {
+          return;
+        }
         const humanChoice = event.target.className;
         const computerChoice = getComputerChoice();
 
         playRound(humanChoice, computerChoice);
 
         if (humanScore === 5 || computerScore === 5) {
+          gameOver = true;
           currentRound.textContent = "Game Over! Refresh to play again.";
           roundResult.textContent = `Final Score - Human: ${humanScore} | Computer: ${computerScore}`;
           if (humanScore === 5) {
@@ -56,6 +60,7 @@
       let humanScore = 0;
       let computerScore = 0;
       let gameRound = 0;
+      let gameOver = false;
 
       function playRound(humanChoice, computerChoice) {
         gameRound++;
