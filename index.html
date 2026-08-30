@@ -6,7 +6,15 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="button-container">
+      <button class="rock">Rock</button>
+      <button class="paper">Paper</button>
+      <button class="scissors">Scissors</button>
+    </div>
+
     <script>
+      const buttons = document.querySelector(".button-container");
+
       function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 3);
         if (randomNumber === 0) {
@@ -19,10 +27,12 @@
       }
       getComputerChoice();
 
-      function getHumanChoice() {
-        const choice = prompt("Input your choice here:");
-        return choice;
-      }
+      buttons.addEventListener("click", function (event) {
+        const humanChoice = event.target.className;
+        const computerChoice = getComputerChoice();
+
+        console.log(playRound(humanChoice, computerChoice));
+      });
 
       let humanScore = 0;
       let computerScore = 0;
@@ -31,7 +41,7 @@
       function playRound(humanChoice, computerChoice) {
         gameRound++;
         console.log(`===| Round ${gameRound} |===`);
-        humanChoice = humanChoice.toLowerCase();
+        // humanChoice = humanChoice.toLowerCase();
         if (humanChoice === computerChoice) {
           const tie = `It's a tie! Both chose ${humanChoice}`;
           return tie;
