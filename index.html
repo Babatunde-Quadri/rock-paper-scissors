@@ -6,17 +6,32 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="button-container">
-      <button class="rock">✊</button>
-      <button class="paper">✋</button>
-      <button class="scissors">✌️</button>
-    </div>
+    <header>
+      <h1 class="heading">ROCK PAPER SCISSORS</h1>
+      <h2 class="subheading">First player to score 5 points wins the game</h2>
+    </header>
+    <main>
+      <div class="score-board">
+        <div class="player-scorecard scorecard">
+          <p class="player-choice">Player</p>
+          <p class="player-score">0</p>
+        </div>
+        <h3 class="current-round">Make a choice!</h3>
+        <div class="cpu-scorecard scorecard">
+          <p class="cpu-choice">Computer</p>
+          <p class="cpu-score">0</p>
+        </div>
+      </div>
+      <div class="main-section">
+        <p class="round-result">Rock, Paper, Scissors. Shoot!</p>
 
-    <div class="gameBoard">
-      <p class="current-round">Click a button to begin!</p>
-      <p class="round-result">Rock, Paper, Scissors. Shoot!</p>
-      <p class="game-score">Human: 0 | computer: 0</p>
-    </div>
+        <div class="button-container">
+          <button class="rock">✊</button>
+          <button class="paper">✋</button>
+          <button class="scissors">✌️</button>
+        </div>
+      </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
