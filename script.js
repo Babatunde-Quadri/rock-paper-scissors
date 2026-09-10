@@ -1,6 +1,7 @@
 const currentRound = document.querySelector(".current-round");
 const roundResult = document.querySelector(".round-result");
-const gameScore = document.querySelector(".game-score");
+const playerScore = document.querySelector(".player-score");
+const cpuScore = document.querySelector(".cpu-score");
 const buttons = document.querySelector(".button-container");
 
 function getComputerChoice() {
@@ -27,7 +28,6 @@ buttons.addEventListener("click", function (event) {
   if (humanScore === 5 || computerScore === 5) {
     gameOver = true;
     currentRound.textContent = "Game Over! Refresh to play again.";
-    roundResult.textContent = `Final Score - Human: ${humanScore} | Computer: ${computerScore}`;
     if (humanScore === 5) {
       gameScore.textContent = "🎉 Overall Winner: Human! 🎉";
     } else {
@@ -66,5 +66,6 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
     return invalid;
   }
-  gameScore.textContent = `Game Score - Human: ${humanScore} | Computer: ${computerScore}`;
+  playerScore.textContent = `${humanScore}`;
+  cpuScore.textContent = `${computerScore}`;
 }
