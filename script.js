@@ -3,6 +3,7 @@ const roundResult = document.querySelector(".round-result");
 const playerScore = document.querySelector(".player-score");
 const cpuScore = document.querySelector(".cpu-score");
 const buttons = document.querySelector(".button-container");
+const gameRecord = document.querySelector("ul");
 
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
@@ -68,4 +69,7 @@ function playRound(humanChoice, computerChoice) {
   }
   playerScore.textContent = `${humanScore}`;
   cpuScore.textContent = `${computerScore}`;
+  const roundRecord = document.createElement("li");
+  roundRecord.textContent = `${currentRound.textContent}: ${roundResult.textContent}`;
+  gameRecord.appendChild(roundRecord);
 }
