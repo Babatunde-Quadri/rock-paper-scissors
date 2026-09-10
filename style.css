@@ -213,6 +213,58 @@ footer img {
   width: auto;
 }
 
+/* REPLAY MODAL */
+
+.game-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.game-modal.show {
+  display: flex;
+}
+
+.modal-content {
+  width: min(400px, 100%);
+  padding: 40px 30px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modal-title {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.modal-score {
+  margin-bottom: 25px;
+  color: #52525b;
+  font-size: 1.1rem;
+}
+
+.play-again {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #18181b;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.play-again:hover {
+  background: #27272a;
+}
+
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 650px) {

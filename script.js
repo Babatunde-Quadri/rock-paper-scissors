@@ -7,6 +7,10 @@ const buttons = document.querySelector(".button-container");
 const historySection = document.querySelector(".history-section");
 const historyToggle = document.querySelector(".history-toggle");
 const gameRecord = document.querySelector(".game-history");
+const gameModal = document.querySelector(".game-modal");
+const modalTitle = document.querySelector(".modal-title");
+const modalScore = document.querySelector(".modal-score");
+const playAgain = document.querySelector(".play-again");
 
 let humanScore = 0;
 let computerScore = 0;
@@ -42,6 +46,19 @@ buttons.addEventListener("click", function (event) {
       gameScore.textContent = "💻 Overall Winner: Computer! 💻";
     }
   }
+  if (humanScore === 5 || computerScore === 5) {
+    gameOver = true;
+
+    if (humanScore === 5) {
+      modalTitle.textContent = "You Win! 🎉";
+    } else {
+      modalTitle.textContent = "Computer Wins! 💻";
+    }
+
+    modalScore.textContent = `Final Score: ${humanScore} - ${computerScore}`;
+
+    gameModal.classList.add("show");
+  }
 });
 
 function playRound(humanChoice, computerChoice) {
@@ -73,4 +90,23 @@ function playRound(humanChoice, computerChoice) {
 }
 historyToggle.addEventListener("click", function () {
   historySection.classList.toggle("open");
+});
+
+playAgain.addEventListener("click", function () {
+  humanScore = 0;
+  computerScore = 0;
+  gameRound = 0;
+  gameOver = false;
+
+  playerScore.textContent = "0";
+  cpuScore.textContent = "0";
+
+  currentRound.textContent = "Make a choice!";
+  roundResult.textContent = "Rock, Paper, Scissors. Shoot!";
+
+  gameScore.textContent = "";
+
+  gameRecord.innerHTML = "";
+
+  gameModal.classList.remove("show");
 });
