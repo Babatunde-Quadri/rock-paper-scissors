@@ -11,6 +11,7 @@ const gameModal = document.querySelector(".game-modal");
 const modalTitle = document.querySelector(".modal-title");
 const modalScore = document.querySelector(".modal-score");
 const playAgain = document.querySelector(".play-again");
+const closeModal = document.querySelector(".close-modal");
 
 let humanScore = 0;
 let computerScore = 0;
@@ -108,5 +109,9 @@ playAgain.addEventListener("click", function () {
 
   gameRecord.innerHTML = "";
 
+  gameModal.classList.remove("show");
+});
+
+closeModal.addEventListener("click", function () {
   gameModal.classList.remove("show");
 });
