@@ -6,6 +6,11 @@ const gameScore = document.querySelector(".game-score");
 const buttons = document.querySelector(".button-container");
 const gameRecord = document.querySelector("ul");
 
+let humanScore = 0;
+let computerScore = 0;
+let gameRound = 0;
+let gameOver = false;
+
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
   if (randomNumber === 0) {
@@ -16,7 +21,6 @@ function getComputerChoice() {
     return "scissors";
   }
 }
-getComputerChoice();
 
 buttons.addEventListener("click", function (event) {
   if (gameOver) {
@@ -38,15 +42,9 @@ buttons.addEventListener("click", function (event) {
   }
 });
 
-let humanScore = 0;
-let computerScore = 0;
-let gameRound = 0;
-let gameOver = false;
-
 function playRound(humanChoice, computerChoice) {
   gameRound++;
   currentRound.textContent = `Round ${gameRound}`;
-  //humanChoice = humanChoice.toLowerCase();
   if (humanChoice === computerChoice) {
     roundResult.textContent = `It's a tie! Both chose ${humanChoice}`;
   } else if (
@@ -63,11 +61,8 @@ function playRound(humanChoice, computerChoice) {
   ) {
     roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     computerScore++;
-  } else {
-    const invalid = `Invalid input! you lose`;
-    computerScore++;
-    return invalid;
   }
+
   playerScore.textContent = `${humanScore}`;
   cpuScore.textContent = `${computerScore}`;
   const roundRecord = document.createElement("li");
