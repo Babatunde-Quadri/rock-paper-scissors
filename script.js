@@ -2,6 +2,7 @@ const currentRound = document.querySelector(".current-round");
 const roundResult = document.querySelector(".round-result");
 const playerScore = document.querySelector(".player-score");
 const cpuScore = document.querySelector(".cpu-score");
+const gameScore = document.querySelector(".game-score");
 const buttons = document.querySelector(".button-container");
 const gameRecord = document.querySelector("ul");
 
