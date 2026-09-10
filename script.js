@@ -4,7 +4,9 @@ const playerScore = document.querySelector(".player-score");
 const cpuScore = document.querySelector(".cpu-score");
 const gameScore = document.querySelector(".game-score");
 const buttons = document.querySelector(".button-container");
-const gameRecord = document.querySelector("ul");
+const historySection = document.querySelector(".history-section");
+const historyToggle = document.querySelector(".history-toggle");
+const gameRecord = document.querySelector(".game-history");
 
 let humanScore = 0;
 let computerScore = 0;
@@ -69,3 +71,6 @@ function playRound(humanChoice, computerChoice) {
   roundRecord.textContent = `${currentRound.textContent}: ${roundResult.textContent}`;
   gameRecord.appendChild(roundRecord);
 }
+historyToggle.addEventListener("click", function () {
+  historySection.classList.toggle("open");
+});
